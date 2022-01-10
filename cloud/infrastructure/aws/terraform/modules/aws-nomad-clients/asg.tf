@@ -9,7 +9,7 @@ resource "aws_launch_template" "clients" {
   instance_type          = var.instance_type
   key_name               = var.key_name
   vpc_security_group_ids = var.security_group_ids
-  user_data              = base64encode(data.template_file.user_data.rendered)
+  user_data              = base64encode(local.data_template_file_user_data)
 
   iam_instance_profile {
     name = aws_iam_instance_profile.clients.name
